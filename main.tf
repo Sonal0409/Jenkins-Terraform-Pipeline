@@ -14,8 +14,8 @@ owners           = ["amazon"]
 
 
 resource "aws_instance" "public_instance" {
- ami           = data.aws_ami.myami.id
- instance_type = var.instance_type
+ ami           = "ami-0c398cb65a93047f2"
+ instance_type = "t3.micro"
 
  tags = {
    Name = var.name_tag,
