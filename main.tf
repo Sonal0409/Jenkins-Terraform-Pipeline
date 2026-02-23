@@ -9,15 +9,27 @@ owners           = ["amazon"]
     values = ["amzn2-ami-hvm*"]
   }
 
+  filter {
+    name   = "architecture"
+    values = ["x86_64"]
+  }
+
+ filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
 
 }
 
 
-resource "aws_instance" "public_instance" {
- ami           = data.aws_ami.myami.id
- instance_type = "t3.micro"
+resource "aws_instance" "myec2" {
 
- tags = {
-   Name = var.name_tag,
- }
+  ami           = data.aws_ami.myami.id
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "Instance1"
+  }
+
 }
